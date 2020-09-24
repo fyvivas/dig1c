@@ -1,1 +1,8 @@
-
+;********** R U T I N A * T E S T E O ******************************************
+Testeo
+	btfss	PORTA,Boton         ; Esta pulsado el Boton (RA0=1??)
+	goto	Testeo              ; No??, seguimos testeando
+	call	Retardo_20ms        ; Si??, Eliminamos efecto rebote
+	btfss	PORTA,Boton         ; Testeamos nuevamente
+	goto	Testeo              ; Falsa Alarma, seguimos testeando
+	incf	ContadorDisplay,1   ; Se ha pulsado, incrementamos ContadorDisplay
